@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Numeral } from "react-numeral";
 
 import {
@@ -9,22 +9,45 @@ import {
   WrapBtn,
 } from "./FollowerInfo.styled";
 import { putUserFollowers } from "../../services/axios";
+import { getDataLocStor, setDataLocStor } from "../../services/localStorage";
 
 export const FollowerInfo = ({ info, updFollowers }) => {
   const [isFollowing, setIsFollowing] = useState(false);
+  const [followersCount, setFollowersCount] = useState(info.followers);
+
+  useEffect(() => {
+    const localData = getDataLocStor();
+
+    if (localData && localData.length > 0) {
+      const isFollowed = localData.includes(Number(info.id));
+      if (isFollowed) {
+        setIsFollowing(true);
+      }
+    }
+  }, [info.id]);
 
   const onFollowingClick = () => {
-    setIsFollowing(!isFollowing);
-
-    async function handleFollowingBtn() {
+    async function handleFollowingBtn(value = 1) {
       const res = await putUserFollowers({
         id: info.id,
-        followers: info.followers,
+        followers: followersCount + value,
       });
-
-      updFollowers(res);
+      if (value === 1) {
+        updFollowers(res, true);
+      } else {
+        updFollowers(res, false);
+      }
     }
-    handleFollowingBtn();
+
+    if (!isFollowing) {
+      setFollowersCount(followersCount + 1);
+      handleFollowingBtn();
+    } else {
+      setFollowersCount(followersCount - 1);
+      handleFollowingBtn(-1);
+    }
+
+    setIsFollowing(!isFollowing);
   };
 
   return (
@@ -33,7 +56,7 @@ export const FollowerInfo = ({ info, updFollowers }) => {
         <Numeral value={info.tweets} format={"0,0"} /> tweets
       </TweetsCount>
       <FollowersCount>
-        <Numeral value={info.followers} format={"0,0"} /> followers
+        <Numeral value={followersCount} format={"0,0"} /> followers
       </FollowersCount>
       <WrapBtn>
         <FollowBtn

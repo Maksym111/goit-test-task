@@ -14,7 +14,7 @@ export const getUsersData = async () => {
 export const putUserFollowers = async ({ id, followers }) => {
   try {
     const res = await axios.put(`users/${id}`, {
-      followers: followers + 1,
+      followers: followers,
     });
     return res.data;
   } catch (error) {

@@ -4,6 +4,7 @@ export const CardsList = styled.ul`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  padding-top: 30px;
   gap: 30px;
 `;
 
