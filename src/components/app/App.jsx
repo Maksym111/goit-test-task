@@ -1,11 +1,9 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { lazy } from "react";
-import Tweets from "../../pages/Tweets";
 
 const SharedLayout = lazy(() => import("../sharedLayout/SharedLayout"));
 const Home = lazy(() => import("../../pages/Home"));
-const Cards = lazy(() => import("../cards/Cards"));
-const NotFound = lazy(() => import("../../pages/NotFound"));
+const Tweets = lazy(() => import("../../pages/Tweets"));
 
 function App() {
   return (
@@ -13,7 +11,7 @@ function App() {
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Home />} />
         <Route path="/tweets" element={<Tweets />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>
   );
