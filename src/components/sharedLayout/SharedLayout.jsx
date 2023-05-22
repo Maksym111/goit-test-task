@@ -1,14 +1,17 @@
 import { Suspense } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import { Container, NavItem, Navigation } from "./SharedLayout.styled";
+import { Container, Logo, NavItem, Navigation } from "./SharedLayout.styled";
 
 const SharedLayout = () => {
   const location = useLocation();
   return (
     <Container>
       <Navigation>
-        <NavItem to={"/"}>Home</NavItem>
-        <NavItem to={"/tweets"} state={{ from: location }}>
+        <Logo to="/">Tweetters</Logo>
+        <NavItem to="/" end>
+          Home
+        </NavItem>
+        <NavItem to="/tweets" state={{ from: location }}>
           Tweets
         </NavItem>
       </Navigation>

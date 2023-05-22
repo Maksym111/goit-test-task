@@ -10,7 +10,7 @@ export const CardWrap = styled.div`
   box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
   border-radius: 20px;
 
-  /* overflow: hidden; */
+  overflow: hidden;
 `;
 
 export const Logo = styled.img`
@@ -44,9 +44,6 @@ export const FollowerImgWrap = styled.div`
 export const FollowerImg = styled.img`
   margin: 0 auto;
   border: 9px solid #ebd8ff;
-  /* box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06),
-    inset 0px -2.19582px 4.39163px #ae7be3,
-    inset 0px 4.39163px 3.29372px #fbf8ff; */
   border-radius: 50%;
 
   background-color: #5736a3;

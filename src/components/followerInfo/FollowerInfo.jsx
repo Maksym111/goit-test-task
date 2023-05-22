@@ -9,7 +9,7 @@ import {
   WrapBtn,
 } from "./FollowerInfo.styled";
 import { putUserFollowers } from "../../services/axios";
-import { getDataLocStor, setDataLocStor } from "../../services/localStorage";
+import { getDataLocStor } from "../../services/localStorage";
 
 export const FollowerInfo = ({ info, updFollowers }) => {
   const [isFollowing, setIsFollowing] = useState(false);

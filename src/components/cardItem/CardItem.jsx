@@ -12,7 +12,7 @@ export const CardItem = ({ info, updFollowers }) => {
   return (
     <>
       <CardWrap>
-        <Logo src={logo} alt="Logo" />
+        <Logo src={logo} width="76" height="22" alt="Logo" />
 
         <FollowerImgWrap>
           <FollowerImg
