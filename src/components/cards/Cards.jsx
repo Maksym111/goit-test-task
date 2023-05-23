@@ -3,13 +3,16 @@ import { getDataLocStor, setDataLocStor } from "../../services/localStorage";
 
 import { getUsersData } from "../../services/axios";
 import { CardItem } from "../cardItem/CardItem";
-import { CardsList } from "./Cards.styled";
+import { CardsList, NoDataTitle } from "./Cards.styled";
 import { LoadMoreBtn } from "../loadMore/LoadMoreBtn";
+import FilterFollowings from "../filterFollowings/FilterFollowings";
 
 const Cards = () => {
   const [users, setUsers] = useState([]);
   const [usersPerPage, setUsersPerPage] = useState([]);
   const [followedUsers, setFollowedUsers] = useState([]);
+
+  const [filteredUsers, setfilteredUsers] = useState([]);
 
   useEffect(() => {
     const localData = getDataLocStor();
@@ -23,10 +26,15 @@ const Cards = () => {
         return;
       }
       setUsers(res);
-      setUsersPerPage(res.slice(0, 3));
+      setfilteredUsers(res);
+      setUsersPerPage(sliceTweets(res));
     }
     getUsers();
   }, []);
+
+  const sliceTweets = (arr) => {
+    return arr.slice(0, 3);
+  };
 
   const updFollowers = (data, isClicked) => {
     setUsers((prevState) => {
@@ -59,15 +67,56 @@ const Cards = () => {
   const onLoadMoreClick = () => {
     setUsersPerPage((prevState) => {
       const prevArrLength = prevState.length;
-      const newArr = users.slice(prevArrLength, prevArrLength + 3);
+      const newArr = filteredUsers.slice(prevArrLength, prevArrLength + 3);
 
       return [...prevState, ...newArr];
     });
   };
 
+  const handleFilterValue = (value) => {
+    const localData = getDataLocStor();
+    switch (value) {
+      case "all":
+        {
+          setfilteredUsers(users);
+          setUsersPerPage(sliceTweets(users));
+        }
+        break;
+
+      case "follow":
+        {
+          setfilteredUsers(() => {
+            const filtUsers = users.reduce((counter, elem) => {
+              const unFollow = localData.includes(Number(elem.id));
+              if (!unFollow) {
+                counter.push(elem);
+              }
+              return counter;
+            }, []);
+
+            setUsersPerPage(sliceTweets(filtUsers));
+            return filtUsers;
+          });
+        }
+        break;
+
+      case "following":
+        setfilteredUsers(() => {
+          const filtUsers = users.filter(({ id }) =>
+            localData.includes(Number(id))
+          );
+          setUsersPerPage(sliceTweets(filtUsers));
+          return filtUsers;
+        });
+        break;
+    }
+  };
+
   return (
     <>
-      {usersPerPage.length > 0 && (
+      <FilterFollowings handleValue={handleFilterValue} />
+
+      {usersPerPage.length > 0 ? (
         <CardsList>
           {usersPerPage.map((elem) => {
             return (
@@ -77,8 +126,10 @@ const Cards = () => {
             );
           })}
         </CardsList>
+      ) : (
+        <NoDataTitle>No tweeters is here :(</NoDataTitle>
       )}
-      {users.length > usersPerPage.length && (
+      {filteredUsers.length > usersPerPage.length && (
         <LoadMoreBtn users={users} onBtnClick={onLoadMoreClick} />
       )}
     </>

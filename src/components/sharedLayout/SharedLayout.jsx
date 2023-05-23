@@ -7,7 +7,9 @@ const SharedLayout = () => {
   return (
     <Container>
       <Navigation>
-        <Logo to="/">Tweetters</Logo>
+        <Logo to="/" end>
+          Tweetters
+        </Logo>
         <NavItem to="/" end>
           Home
         </NavItem>

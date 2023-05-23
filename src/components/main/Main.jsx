@@ -1,6 +1,3 @@
-import { Suspense, lazy } from "react";
-const Tweets = lazy(() => import("../../pages/Tweets"));
-
 import {
   Container,
   InfoBlock,
@@ -9,8 +6,11 @@ import {
   SubTitle,
   Title,
 } from "./Main.styled";
+import { useLocation } from "react-router-dom";
 
 const Main = () => {
+  const location = useLocation();
+
   return (
     <MainSection>
       <Container>
@@ -21,11 +21,9 @@ const Main = () => {
             known as tweets. These tweets can contain text, videos, photos or
             links.
           </SubTitle>
-          <Suspense fallback={<div>Loading...</div>}>
-            <MainButton to="/tweets" element={<Tweets />}>
-              Find Your Person
-            </MainButton>
-          </Suspense>
+          <MainButton to="/tweets" state={{ from: location }}>
+            Find Your Person
+          </MainButton>
         </InfoBlock>
       </Container>
     </MainSection>

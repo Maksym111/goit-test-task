@@ -11,3 +11,12 @@ export const CardsList = styled.ul`
 export const CardItem = styled.li`
   width: calc((100% - 6 * 15px) / 3);
 `;
+
+export const NoDataTitle = styled.p`
+  margin-top: 100px;
+  text-align: center;
+
+  font-weight: 700;
+  font-size: 30px;
+  font-style: italic;
+`;

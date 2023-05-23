@@ -45,6 +45,12 @@ const NavItem = styled(NavLink)`
   text-decoration: none;
   color: #292929;
 
+  &.active {
+    color: #d47901;
+    text-decoration: underline;
+    font-size: 24px;
+  }
+
   :not(:last-child) {
     margin-right: 50px;
   }
