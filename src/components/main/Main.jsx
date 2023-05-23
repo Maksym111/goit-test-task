@@ -21,7 +21,7 @@ const Main = () => {
             known as tweets. These tweets can contain text, videos, photos or
             links.
           </SubTitle>
-          <MainButton to="/tweets" state={{ from: location }}>
+          <MainButton to="tweets" state={{ from: location }}>
             Find Your Person
           </MainButton>
         </InfoBlock>
