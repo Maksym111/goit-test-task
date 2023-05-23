@@ -1,4 +1,4 @@
-import{N as o,u as a,j as t,r,O as s}from"./index-6417e6a7.js";import{n as e}from"./emotion-styled.browser.esm-3b27c251.js";const d=e.div`
+import{N as o,u as a,j as t,r,O as s}from"./index-9bd89521.js";import{n as e}from"./emotion-styled.browser.esm-e8fae6f0.js";const d=e.div`
   position: relative;
   padding: 0;
 `,c=e.nav`
@@ -36,6 +36,12 @@ import{N as o,u as a,j as t,r,O as s}from"./index-6417e6a7.js";import{n as e}fro
   text-decoration: none;
   color: #292929;
 
+  &.active {
+    color: #d47901;
+    text-decoration: underline;
+    font-size: 24px;
+  }
+
   :not(:last-child) {
     margin-right: 50px;
   }
@@ -43,4 +49,4 @@ import{N as o,u as a,j as t,r,O as s}from"./index-6417e6a7.js";import{n as e}fro
   :hover {
     text-decoration: underline;
   }
-`,g=()=>{const i=a();return t.jsxs(d,{children:[t.jsxs(c,{children:[t.jsx(l,{to:"/",children:"Tweetters"}),t.jsx(n,{to:"/",end:!0,children:"Home"}),t.jsx(n,{to:"/tweets",state:{from:i},children:"Tweets"})]}),t.jsx(r.Suspense,{fallback:t.jsx("div",{children:"Loading..."}),children:t.jsx(s,{})})]})};export{g as default};
+`,g=()=>{const i=a();return t.jsxs(d,{children:[t.jsxs(c,{children:[t.jsx(l,{to:"/",end:!0,children:"Tweetters"}),t.jsx(n,{to:"/",end:!0,children:"Home"}),t.jsx(n,{to:"/tweets",state:{from:i},children:"Tweets"})]}),t.jsx(r.Suspense,{fallback:t.jsx("div",{children:"Loading..."}),children:t.jsx(s,{})})]})};export{g as default};

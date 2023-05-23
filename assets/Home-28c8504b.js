@@ -1,4 +1,4 @@
-import{L as n,r as o,_ as i,j as t}from"./index-6417e6a7.js";import{n as e}from"./emotion-styled.browser.esm-3b27c251.js";const r="/goit-test-task/assets/mainBcgr-9a02d8fb.jpg",s=e.div`
+import{L as e,u as i,j as t}from"./index-9bd89521.js";import{n as o}from"./emotion-styled.browser.esm-e8fae6f0.js";const r="/goit-test-task/assets/mainBcgr-9a02d8fb.jpg",s=o.div`
   height: 100vh;
 
   background: linear-gradient(
@@ -10,16 +10,16 @@ import{L as n,r as o,_ as i,j as t}from"./index-6417e6a7.js";import{n as e}from"
   background-repeat: no-repeat;
   background-position: 100% auto;
   background-size: cover;
-`,a=e.div`
+`,a=o.div`
   margin: 0 250px;
   padding-top: 120px;
-`,d=e.div`
+`,c=o.div`
   width: 440px;
 
   font-family: "Lato";
   font-weight: 400;
   font-size: 20px;
-`,c=e.h1`
+`,d=o.h1`
   margin-bottom: 30px;
 
   font-family: "Georgia";
@@ -28,13 +28,13 @@ import{L as n,r as o,_ as i,j as t}from"./index-6417e6a7.js";import{n as e}from"
   line-height: 74px;
 
   color: #01996d;
-`,p=e.p`
+`,p=o.p`
   margin-bottom: 30px;
 
   line-height: 31px;
 
   color: #484848;
-`,x=e(n)`
+`,x=o(e)`
   margin-bottom: 30px;
   padding: 20px;
 
@@ -54,4 +54,4 @@ import{L as n,r as o,_ as i,j as t}from"./index-6417e6a7.js";import{n as e}from"
     transform: translateY(-2px);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
   }
-`,l=o.lazy(()=>i(()=>import("./Tweets-79f2dd2c.js"),["assets/Tweets-79f2dd2c.js","assets/index-6417e6a7.js","assets/index-b96bc380.css","assets/emotion-styled.browser.esm-3b27c251.js"])),g=()=>t.jsx(s,{children:t.jsx(a,{children:t.jsxs(d,{children:[t.jsx(c,{children:"Find your own tweet person"}),t.jsx(p,{children:"Is a free social networking site where users broadcast short posts known as tweets. These tweets can contain text, videos, photos or links."}),t.jsx(o.Suspense,{fallback:t.jsx("div",{children:"Loading..."}),children:t.jsx(x,{to:"/tweets",element:t.jsx(l,{}),children:"Find Your Person"})})]})})}),m=()=>t.jsx(g,{});export{m as default};
+`,f=()=>{const n=i();return t.jsx(s,{children:t.jsx(a,{children:t.jsxs(c,{children:[t.jsx(d,{children:"Find your own tweet person"}),t.jsx(p,{children:"Is a free social networking site where users broadcast short posts known as tweets. These tweets can contain text, videos, photos or links."}),t.jsx(x,{to:"/tweets",state:{from:n},children:"Find Your Person"})]})})})},h=()=>t.jsx(f,{});export{h as default};
