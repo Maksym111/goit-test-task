@@ -21,7 +21,10 @@ const FilterFollowings = ({ handleValue }) => {
       ...commonStyles,
     }),
     menu: (styles) => {
-      return { ...styles, width: "200px", ...commonStyles };
+      return {
+        ...styles,
+        ...commonStyles,
+      };
     },
   };
 

@@ -20,3 +20,10 @@ export const NoDataTitle = styled.p`
   font-size: 30px;
   font-style: italic;
 `;
+
+export const WrapFilter = styled.div`
+  position: relative;
+  display: inline-block;
+  left: calc(100% - 270px);
+  top: 15px;
+`;

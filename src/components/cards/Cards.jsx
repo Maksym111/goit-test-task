@@ -3,7 +3,7 @@ import { getDataLocStor, setDataLocStor } from "../../services/localStorage";
 
 import { getUsersData } from "../../services/axios";
 import { CardItem } from "../cardItem/CardItem";
-import { CardsList, NoDataTitle } from "./Cards.styled";
+import { CardsList, NoDataTitle, WrapFilter } from "./Cards.styled";
 import { LoadMoreBtn } from "../loadMore/LoadMoreBtn";
 import FilterFollowings from "../filterFollowings/FilterFollowings";
 
@@ -114,7 +114,9 @@ const Cards = () => {
 
   return (
     <>
-      <FilterFollowings handleValue={handleFilterValue} />
+      <WrapFilter>
+        <FilterFollowings handleValue={handleFilterValue} />
+      </WrapFilter>
 
       {usersPerPage.length > 0 ? (
         <CardsList>
