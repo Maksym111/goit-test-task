@@ -1,4 +1,4 @@
-import{L as e,u as i,j as t}from"./index-9bd89521.js";import{n as o}from"./emotion-styled.browser.esm-e8fae6f0.js";const r="/goit-test-task/assets/mainBcgr-9a02d8fb.jpg",s=o.div`
+import{L as e,u as i,j as t}from"./index-ac601a27.js";import{n as o}from"./emotion-styled.browser.esm-5c3cd4a3.js";const r="/goit-test-task/assets/mainBcgr-9a02d8fb.jpg",s=o.div`
   height: 100vh;
 
   background: linear-gradient(
