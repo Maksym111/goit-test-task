@@ -1,4 +1,4 @@
-import{L as e,u as i,j as t}from"./index-ac601a27.js";import{n as o}from"./emotion-styled.browser.esm-5c3cd4a3.js";const r="/goit-test-task/assets/mainBcgr-9a02d8fb.jpg",s=o.div`
+import{L as e,u as i,j as t}from"./index-fd09f004.js";import{n as o}from"./emotion-styled.browser.esm-1043339e.js";const r="/goit-test-task/assets/mainBcgr-9a02d8fb.jpg",s=o.div`
   height: 100vh;
 
   background: linear-gradient(
@@ -35,6 +35,7 @@ import{L as e,u as i,j as t}from"./index-ac601a27.js";import{n as o}from"./emoti
 
   color: #484848;
 `,x=o(e)`
+  display: inline-block;
   margin-bottom: 30px;
   padding: 20px;
 
@@ -54,4 +55,4 @@ import{L as e,u as i,j as t}from"./index-ac601a27.js";import{n as o}from"./emoti
     transform: translateY(-2px);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
   }
-`,f=()=>{const n=i();return t.jsx(s,{children:t.jsx(a,{children:t.jsxs(c,{children:[t.jsx(d,{children:"Find your own tweet person"}),t.jsx(p,{children:"Is a free social networking site where users broadcast short posts known as tweets. These tweets can contain text, videos, photos or links."}),t.jsx(x,{to:"/tweets",state:{from:n},children:"Find Your Person"})]})})})},h=()=>t.jsx(f,{});export{h as default};
+`,l=()=>{const n=i();return t.jsx(s,{children:t.jsx(a,{children:t.jsxs(c,{children:[t.jsx(d,{children:"Find your own tweet person"}),t.jsx(p,{children:"Is a free social networking site where users broadcast short posts known as tweets. These tweets can contain text, videos, photos or links."}),t.jsx(x,{to:"/tweets",state:{from:n},children:"Find Your Person"})]})})})},h=()=>t.jsx(l,{});export{h as default};
