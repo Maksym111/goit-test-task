@@ -3,11 +3,17 @@ import { getDataLocStor, setDataLocStor } from "../../services/localStorage";
 
 import { getUsersData } from "../../services/axios";
 import { CardItem } from "../cardItem/CardItem";
-import { CardsList, NoDataTitle, WrapFilter } from "./Cards.styled";
+import {
+  CardsList,
+  LoadingData,
+  NoDataTitle,
+  WrapFilter,
+} from "./Cards.styled";
 import { LoadMoreBtn } from "../loadMore/LoadMoreBtn";
 import FilterFollowings from "../filterFollowings/FilterFollowings";
 
 const Cards = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [users, setUsers] = useState([]);
   const [usersPerPage, setUsersPerPage] = useState([]);
   const [followedUsers, setFollowedUsers] = useState([]);
@@ -31,6 +37,12 @@ const Cards = () => {
     }
     getUsers();
   }, []);
+
+  useEffect(() => {
+    if (users.length > 0 && usersPerPage.length > 0) {
+      setIsLoading(false);
+    }
+  }, [users.length, usersPerPage.length]);
 
   const sliceTweets = (arr) => {
     return arr.slice(0, 3);
@@ -114,25 +126,35 @@ const Cards = () => {
 
   return (
     <>
-      <WrapFilter>
-        <FilterFollowings handleValue={handleFilterValue} />
-      </WrapFilter>
+      {!isLoading ? (
+        <>
+          <WrapFilter>
+            <FilterFollowings handleValue={handleFilterValue} />
+          </WrapFilter>
 
-      {usersPerPage.length > 0 ? (
-        <CardsList>
-          {usersPerPage.map((elem) => {
-            return (
-              <li key={elem.id}>
-                <CardItem info={elem} updFollowers={updFollowers}></CardItem>
-              </li>
-            );
-          })}
-        </CardsList>
+          {usersPerPage.length > 0 ? (
+            <CardsList>
+              {usersPerPage.map((elem) => {
+                return (
+                  <li key={elem.id}>
+                    <CardItem
+                      info={elem}
+                      updFollowers={updFollowers}
+                    ></CardItem>
+                  </li>
+                );
+              })}
+            </CardsList>
+          ) : (
+            <NoDataTitle>No tweeters is here :(</NoDataTitle>
+          )}
+
+          {filteredUsers.length > usersPerPage.length && (
+            <LoadMoreBtn users={users} onBtnClick={onLoadMoreClick} />
+          )}
+        </>
       ) : (
-        <NoDataTitle>No tweeters is here :(</NoDataTitle>
-      )}
-      {filteredUsers.length > usersPerPage.length && (
-        <LoadMoreBtn users={users} onBtnClick={onLoadMoreClick} />
+        <LoadingData>Data is loading...</LoadingData>
       )}
     </>
   );

@@ -49,6 +49,7 @@ export const SubTitle = styled.p`
 `;
 
 export const MainButton = styled(Link)`
+  display: inline-block;
   margin-bottom: 30px;
   padding: 20px;
 

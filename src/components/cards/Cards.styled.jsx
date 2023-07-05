@@ -27,3 +27,9 @@ export const WrapFilter = styled.div`
   left: calc(100% - 270px);
   top: 15px;
 `;
+
+export const LoadingData = styled.h1`
+  text-align: center;
+  margin-top: 50px;
+  font-size: 30px;
+`;

@@ -12,7 +12,7 @@ const FilterFollowings = ({ handleValue }) => {
 
   const commonStyles = {
     width: "200px",
-    left: "calc(100% - 270px)",
+    left: "calc(100% - 300px)",
   };
 
   const selectStyles = {
