@@ -22,7 +22,7 @@ export const NoDataTitle = styled.p`
 `;
 
 export const WrapFilter = styled.div`
-  position: relative;
+  position: absolute;
   display: inline-block;
   left: calc(100% - 270px);
   top: 15px;

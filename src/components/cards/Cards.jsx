@@ -16,7 +16,7 @@ const Cards = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [users, setUsers] = useState([]);
   const [usersPerPage, setUsersPerPage] = useState([]);
-  const [followedUsers, setFollowedUsers] = useState([]);
+  const [, setFollowedUsers] = useState([]);
 
   const [filteredUsers, setfilteredUsers] = useState([]);
 
